@@ -1,4 +1,4 @@
-package com.testdevlab.androidexample.navigation.fragments
+package com.testdevlab.androidexample.ui.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.testdevlab.androidexample.navigation.TAG
-import com.testdevlab.androidexample.navigation.openFragment
+import com.testdevlab.androidexample.ui.TAG
+import com.testdevlab.androidexample.ui.openFragment
 import com.testdevlab.androidexample.R
 import com.testdevlab.androidexample.databinding.FragmentSecondBinding
 

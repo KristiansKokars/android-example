@@ -1,4 +1,4 @@
-package com.testdevlab.androidexample.navigation.fragments
+package com.testdevlab.androidexample.ui.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -6,14 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.testdevlab.androidexample.navigation.TAG
-import com.testdevlab.androidexample.navigation.openFragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import com.testdevlab.androidexample.ui.TAG
+import com.testdevlab.androidexample.ui.openFragment
 import com.testdevlab.androidexample.R
 import com.testdevlab.androidexample.databinding.FragmentFirstBinding
+import com.testdevlab.androidexample.ui.viewmodels.MainViewModel
 
 class FirstFragment : Fragment() {
 
     private lateinit var binding: FragmentFirstBinding
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,9 +32,16 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "Fragment one: onViewCreated")
+        Log.d(TAG, "Instance of MainViewModel - $viewModel")
+
+        displayScore()
 
         binding.nextButton.setOnClickListener {
             openFragment(R.id.navigation_second, R.id.nav_host)
         }
+    }
+
+    fun displayScore() {
+        binding.userScore.text = viewModel.getUserScore() // initialised
     }
 }

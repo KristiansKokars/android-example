@@ -1,4 +1,4 @@
-package com.testdevlab.androidexample.navigation
+package com.testdevlab.androidexample.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +8,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.testdevlab.androidexample.R
 import com.testdevlab.androidexample.databinding.ActivityMainBinding
 
-const val TAG = "example"
+const val TAG = "example_app"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

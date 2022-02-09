@@ -3,21 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_first">
+    app:startDestination="@+id/navigation_example">
+
+    <fragment
+        android:id="@+id/navigation_example"
+        android:label="example_label"
+        android:name="com.testdevlab.androidexample.ui.fragments.ExampleFragment" />
 
     <fragment
         android:id="@+id/navigation_first"
         android:label="fragment_first"
-        android:name="com.testdevlab.androidexample.navigation.fragments.FirstFragment" />
+        android:name="com.testdevlab.androidexample.ui.fragments.FirstFragment" />
 
     <fragment
         android:id="@+id/navigation_second"
         android:label="fragment_second"
-        android:name="com.testdevlab.androidexample.navigation.fragments.SecondFragment" />
+        android:name="com.testdevlab.androidexample.ui.fragments.SecondFragment" />
 
     <fragment
         android:id="@+id/navigation_third"
         android:label="fragment_third"
-        android:name="com.testdevlab.androidexample.navigation.fragments.ThirdFragment" />
+        android:name="com.testdevlab.androidexample.ui.fragments.ThirdFragment" />
 
 </navigation>

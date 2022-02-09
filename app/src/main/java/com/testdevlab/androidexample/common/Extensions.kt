@@ -1,4 +1,4 @@
-package com.testdevlab.androidexample.navigation
+package com.testdevlab.androidexample.ui
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
