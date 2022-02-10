@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.testdevlab.androidexample.ui.architecture.TAG
-import com.testdevlab.androidexample.ui.openFragment
+import com.testdevlab.androidexample.common.openFragment
 import com.testdevlab.androidexample.R
 import com.testdevlab.androidexample.databinding.FragmentSecondBinding
 

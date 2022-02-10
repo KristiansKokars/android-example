@@ -11,7 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.testdevlab.androidexample.ui.architecture.TAG
-import com.testdevlab.androidexample.ui.openFragment
+import com.testdevlab.androidexample.common.openFragment
 import com.testdevlab.androidexample.R
 import com.testdevlab.androidexample.databinding.FragmentFirstBinding
 import com.testdevlab.androidexample.ui.architecture.viewmodels.MainViewModel
