@@ -1,4 +1,4 @@
-package com.testdevlab.androidexample.ui
+package com.testdevlab.androidexample.common
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.testdevlab.androidexample.ui.architecture.TAG
-import com.testdevlab.androidexample.ui.openFragment
+import com.testdevlab.androidexample.common.openFragment
 import com.testdevlab.androidexample.R
 import com.testdevlab.androidexample.databinding.FragmentFirstBinding
 import com.testdevlab.androidexample.ui.architecture.viewmodels.MainViewModel

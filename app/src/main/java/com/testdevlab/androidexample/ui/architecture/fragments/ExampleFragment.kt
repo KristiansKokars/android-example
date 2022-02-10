@@ -10,7 +10,7 @@ import androidx.fragment.app.activityViewModels
 import com.testdevlab.androidexample.R
 import com.testdevlab.androidexample.databinding.FragmentExampleBinding
 import com.testdevlab.androidexample.ui.architecture.TAG
-import com.testdevlab.androidexample.ui.openFragment
+import com.testdevlab.androidexample.common.openFragment
 import com.testdevlab.androidexample.ui.architecture.viewmodels.MainViewModel
 
 class ExampleFragment : Fragment() {
