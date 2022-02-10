@@ -2,24 +2,41 @@ package com.testdevlab.androidexample.ui.architecture.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.testdevlab.androidexample.R
 import com.testdevlab.androidexample.ui.architecture.TAG
+import kotlinx.coroutines.flow.*
+import java.lang.NumberFormatException
 
 class MainViewModel: ViewModel() {
 
-    private var score: Int = 0
+    private val _onScoreUpdated = MutableStateFlow(0)
+    private val _onError = MutableSharedFlow<Int>(replay = 1)
 
-    fun getUserScore() = score.toString()
+    val onError = _onError.asSharedFlow()
+    val onScoreUpdated = _onScoreUpdated.asStateFlow()
 
     fun increaseScore() {
-        score++
+       _onScoreUpdated.value += 1
     }
 
     fun decreaseScore() {
-        score--
+        _onScoreUpdated.value -= 1
     }
 
     fun resetScore() {
-        score = 0
+        _onScoreUpdated.value = 0
+    }
+
+    fun setNewValue(newValue: String) {
+        try {
+            _onScoreUpdated.value = newValue.toInt()
+        } catch (e: NumberFormatException) {
+            _onError.tryEmit(R.string.fragment_example_error)
+        }
+    }
+
+    fun showError() {
+        _onError.tryEmit(R.string.fragment_one_error)
     }
 
     override fun onCleared() {

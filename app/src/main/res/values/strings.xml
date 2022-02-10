@@ -8,4 +8,9 @@
     <string name="decrease">Decrease</string>
     <string name="reset">Reset</string>
     <string name="next">Next</string>
+    <string name="accept">Accept</string>
+    <string name="bad_input">Bad input</string>
+    <string name="show_error">Show error</string>
+    <string name="fragment_one_error">Fragment one error</string>
+    <string name="fragment_example_error">Fragment example error</string>
 </resources>

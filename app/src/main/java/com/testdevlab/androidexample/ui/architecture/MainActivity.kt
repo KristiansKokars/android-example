@@ -3,13 +3,19 @@ package com.testdevlab.androidexample.ui.architecture
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import com.testdevlab.androidexample.R
+import com.google.android.material.snackbar.Snackbar
 import com.testdevlab.androidexample.databinding.ActivityMainBinding
+import com.testdevlab.androidexample.ui.architecture.viewmodels.MainViewModel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 const val TAG = "example_app"
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel: MainViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -21,12 +27,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        navController = (supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment).navController
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            Log.d(TAG, "Destination: " + destination.label)
-            navController.backQueue.forEachIndexed { index, navBackStackEntry ->
-                Log.d(TAG, "back stack entry $index: ${navBackStackEntry.destination.label.toString()}")
+        lifecycleScope.launch {
+            viewModel.onError.collect { errorStringResource ->
+                Snackbar.make(binding.root, getString(errorStringResource), Snackbar.LENGTH_LONG).show()
             }
         }
     }

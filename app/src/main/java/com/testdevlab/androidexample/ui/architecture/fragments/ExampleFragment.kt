@@ -7,11 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.testdevlab.androidexample.R
 import com.testdevlab.androidexample.databinding.FragmentExampleBinding
 import com.testdevlab.androidexample.ui.architecture.TAG
 import com.testdevlab.androidexample.ui.openFragment
 import com.testdevlab.androidexample.ui.architecture.viewmodels.MainViewModel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class ExampleFragment : Fragment() {
 
@@ -25,30 +30,32 @@ class ExampleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d(TAG, "Instance of MainViewModel - $viewModel")
-
-        displayScore()
 
         binding.run {
             increaseButton.setOnClickListener {
                 viewModel.increaseScore()
-                displayScore()
             }
             decreaseButton.setOnClickListener {
                 viewModel.decreaseScore()
-                displayScore()
             }
             resetButton.setOnClickListener {
                 viewModel.resetScore()
-                displayScore()
             }
             openNextButton.setOnClickListener {
                 openFragment(R.id.navigation_first, R.id.nav_host)
             }
+            acceptButton.setOnClickListener {
+                viewModel.setNewValue(binding.newValueEdittext.text.toString())
+            }
         }
-    }
 
-    fun displayScore() {
-        binding.userScore.text = viewModel.getUserScore() // initialised
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.onScoreUpdated.collect { newValue ->
+                    Log.d(TAG, "Flow was collected Example fragment")
+                    binding.userScore.text = newValue.toString()
+                }
+            }
+        }
     }
 }
