@@ -1,8 +1,8 @@
-package com.testdevlab.androidexample.ui.viewmodels
+package com.testdevlab.androidexample.ui.architecture.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.testdevlab.androidexample.ui.TAG
+import com.testdevlab.androidexample.ui.architecture.TAG
 
 class MainViewModel: ViewModel() {
 

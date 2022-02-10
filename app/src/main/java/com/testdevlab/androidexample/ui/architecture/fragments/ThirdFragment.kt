@@ -1,4 +1,4 @@
-package com.testdevlab.androidexample.ui.fragments
+package com.testdevlab.androidexample.ui.architecture.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -6,37 +6,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.testdevlab.androidexample.ui.TAG
+import com.testdevlab.androidexample.ui.architecture.TAG
 import com.testdevlab.androidexample.ui.openFragment
 import com.testdevlab.androidexample.R
-import com.testdevlab.androidexample.databinding.FragmentSecondBinding
+import com.testdevlab.androidexample.databinding.FragmentThirdBinding
 
-class SecondFragment : Fragment() {
+class ThirdFragment : Fragment() {
 
-    private lateinit var binding: FragmentSecondBinding
+    private lateinit var binding: FragmentThirdBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSecondBinding.inflate(inflater, container, false)
-        Log.d(TAG, "Fragment two onCreateView")
+        binding = FragmentThirdBinding.inflate(inflater, container, false)
+        Log.d(TAG, "Fragment one: onCreateView")
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d(TAG, "Fragment two onViewCreated")
-
+        Log.d(TAG, "Fragment one: onViewCreated")
 
         binding.goBackButton.setOnClickListener {
-            openFragment(R.id.navigation_first, R.id.nav_host)
-        }
-
-        binding.nextButton.setOnClickListener {
-            openFragment(R.id.navigation_third, R.id.nav_host)
+            openFragment(R.id.navigation_second, R.id.nav_host)
         }
     }
 }

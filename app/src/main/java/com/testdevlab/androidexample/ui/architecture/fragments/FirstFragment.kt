@@ -1,4 +1,4 @@
-package com.testdevlab.androidexample.ui.fragments
+package com.testdevlab.androidexample.ui.architecture.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import com.testdevlab.androidexample.ui.TAG
+import com.testdevlab.androidexample.ui.architecture.TAG
 import com.testdevlab.androidexample.ui.openFragment
 import com.testdevlab.androidexample.R
 import com.testdevlab.androidexample.databinding.FragmentFirstBinding
-import com.testdevlab.androidexample.ui.viewmodels.MainViewModel
+import com.testdevlab.androidexample.ui.architecture.viewmodels.MainViewModel
 
 class FirstFragment : Fragment() {
 

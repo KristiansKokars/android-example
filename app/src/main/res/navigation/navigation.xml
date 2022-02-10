@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_example">
 
     <fragment
         android:id="@+id/navigation_example"
         android:label="example_label"
-        android:name="com.testdevlab.androidexample.ui.fragments.ExampleFragment" />
+        android:name="com.testdevlab.androidexample.ui.architecture.fragments.ExampleFragment" />
 
     <fragment
         android:id="@+id/navigation_first"
         android:label="fragment_first"
-        android:name="com.testdevlab.androidexample.ui.fragments.FirstFragment" />
+        android:name="com.testdevlab.androidexample.ui.architecture.fragments.FirstFragment" />
 
     <fragment
         android:id="@+id/navigation_second"
         android:label="fragment_second"
-        android:name="com.testdevlab.androidexample.ui.fragments.SecondFragment" />
+        android:name="com.testdevlab.androidexample.ui.architecture.fragments.SecondFragment" />
 
     <fragment
         android:id="@+id/navigation_third"
         android:label="fragment_third"
-        android:name="com.testdevlab.androidexample.ui.fragments.ThirdFragment" />
+        android:name="com.testdevlab.androidexample.ui.architecture.fragments.ThirdFragment" />
 
 </navigation>
