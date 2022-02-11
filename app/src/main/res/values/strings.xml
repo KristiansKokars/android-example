@@ -13,4 +13,5 @@
     <string name="show_error">Show error</string>
     <string name="fragment_one_error">Fragment one error</string>
     <string name="fragment_example_error">Fragment example error</string>
+    <string name="custom_button">Custom button</string>
 </resources>

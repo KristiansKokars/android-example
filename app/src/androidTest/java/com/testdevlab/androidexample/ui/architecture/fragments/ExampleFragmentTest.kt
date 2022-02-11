@@ -79,4 +79,25 @@ class ExampleFragmentTest {
         // Then error message is displayed
         assertDisplayed(R.string.fragment_example_error)
     }
+
+    @Test
+    fun first_fragment_opens_on_button_click() {
+        // When openNextButton is clicked
+        clickOn(R.id.open_next_button)
+
+        // Then FirstFragment is displayed
+        assertDisplayed(R.id.first_fragment_layout)
+    }
+
+    @Test
+    fun user_score_displayed_on_the_first_fragment() {
+        // Given user score was changed
+        clickOn(R.id.increase_button)
+
+        // When openNextButton is clicked
+        clickOn(R.id.open_next_button)
+
+        // Then user score is displayed on the FirstFragment
+        assertDisplayed(R.id.user_score, "1")
+    }
 }
