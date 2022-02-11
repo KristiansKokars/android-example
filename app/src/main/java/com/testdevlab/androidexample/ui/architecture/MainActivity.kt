@@ -27,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         lifecycleScope.launch {
             viewModel.onError.collect { errorStringResource ->
                 Snackbar.make(binding.root, getString(errorStringResource), Snackbar.LENGTH_LONG).show()

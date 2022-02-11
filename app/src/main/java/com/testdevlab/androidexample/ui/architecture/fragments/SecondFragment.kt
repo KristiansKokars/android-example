@@ -25,11 +25,9 @@ class SecondFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(TAG, "Fragment two onViewCreated")
-
 
         binding.goBackButton.setOnClickListener {
             openFragment(R.id.navigation_first, R.id.nav_host)

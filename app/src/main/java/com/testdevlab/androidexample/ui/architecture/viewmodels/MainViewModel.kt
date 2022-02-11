@@ -3,6 +3,7 @@ package com.testdevlab.androidexample.ui.architecture.viewmodels
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.testdevlab.androidexample.R
+import com.testdevlab.androidexample.models.User
 import com.testdevlab.androidexample.ui.architecture.TAG
 import kotlinx.coroutines.flow.*
 import java.lang.NumberFormatException
@@ -14,6 +15,8 @@ class MainViewModel: ViewModel() {
 
     val onError = _onError.asSharedFlow()
     val onScoreUpdated = _onScoreUpdated.asStateFlow()
+
+    val user = User("Me", 69)
 
     fun increaseScore() {
        _onScoreUpdated.value += 1

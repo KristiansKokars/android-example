@@ -13,6 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.testdevlab.androidexample.ui.architecture.TAG
 import com.testdevlab.androidexample.common.openFragment
 import com.testdevlab.androidexample.R
+import com.testdevlab.androidexample.common.launchUI
 import com.testdevlab.androidexample.databinding.FragmentFirstBinding
 import com.testdevlab.androidexample.ui.architecture.viewmodels.MainViewModel
 import kotlinx.coroutines.flow.collect
@@ -43,12 +44,10 @@ class FirstFragment : Fragment() {
             viewModel.showError()
         }
 
-        lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.onScoreUpdated.collect { newValue ->
-                    Log.d(TAG, "Flow was collected Example fragment")
-                    binding.userScore.text = newValue.toString()
-                }
+        launchUI {
+            viewModel.onScoreUpdated.collect { newValue ->
+                Log.d(TAG, "Flow was collected Example fragment")
+                binding.userScore.text = newValue.toString()
             }
         }
     }

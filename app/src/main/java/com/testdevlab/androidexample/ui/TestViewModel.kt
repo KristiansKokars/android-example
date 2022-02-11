@@ -13,13 +13,12 @@ import kotlinx.coroutines.launch
 class TestViewModel(
     private val repository: TestRepository
 ) : ViewModel() {
-
     private val _onLoading = MutableSharedFlow<Boolean>(replay = 1)
     private val _onError = MutableSharedFlow<String>(replay = 1)
 
+    val testItems = repository.testItems
     val onLoading = _onLoading.asSharedFlow()
     val onError = _onError.asSharedFlow()
-    val testItems = repository.testItems
 
     fun getTestData() = viewModelScope.launch {
         _onLoading.emit(true)

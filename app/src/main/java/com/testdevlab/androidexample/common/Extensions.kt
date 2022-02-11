@@ -2,7 +2,12 @@ package com.testdevlab.androidexample.common
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.NavHostFragment
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 fun FragmentActivity.getNavController(id: Int) =
     (supportFragmentManager.findFragmentById(id) as NavHostFragment).navController
@@ -21,3 +26,10 @@ fun FragmentActivity.openFragment(fragmentId: Int, navHostId: Int) =
             navigate(fragmentId)
         }
     }
+
+fun Fragment.launchUI(
+    lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
+    block: suspend CoroutineScope.() -> Unit
+) = viewLifecycleOwner.lifecycleScope.launch {
+    repeatOnLifecycle(lifecycleState, block)
+}

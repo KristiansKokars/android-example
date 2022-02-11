@@ -32,6 +32,8 @@ class ExampleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.run {
+            user = viewModel.user
+
             increaseButton.setOnClickListener {
                 viewModel.increaseScore()
             }
